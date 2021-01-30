@@ -110,7 +110,7 @@ public class LoginSteps {
 
     @When("User fill the supplier login form with {string} email and {string} password")
     public void user_fill_the_supplier_login_form_with_email_and_password(String email, String password) {
-        logger.info("Signing in on the admin page with customer credentials email: " + email + " , and password: " + password);
+        logger.info("Signing in on the supplier page with customer credentials email: " + email + " , and password: " + password);
         supplierHomePage.doLogin(email,password);
     }
 

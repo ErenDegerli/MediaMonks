@@ -1,8 +1,6 @@
 @search
 Feature: Hotel Room Booking Case
 
-
-
   Scenario: User should be able to book a hotel room
     Given User navigates to login page
     When User fills the login form with "user@phptravels.com" email and "demouser" password
