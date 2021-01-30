@@ -41,4 +41,8 @@ public abstract class Base {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
         return element;
     }
+
+    public void confirmAlert() {
+        driver.switchTo().alert().accept();
+    }
 }

@@ -18,7 +18,7 @@ Feature: Hotel Room Booking Case
     Given User goes to hotel detail page
     When User selects a room
     And confirms the booking
-    Then User see the booking details
+    Then User see the "Booking Details"
 
     When User chooses to make purchase with pay on arrival option
     Then User see "Your booking status is Reserved" message

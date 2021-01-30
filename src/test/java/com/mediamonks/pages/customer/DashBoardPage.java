@@ -34,6 +34,9 @@ public class DashBoardPage extends Base {
     @FindBy(css = "div.animated.flash.d-none.d-md-block")
     private WebElement header;
 
+    @FindBy(css = "h5.mt0.float-none")
+    private WebElement reservationStatus;
+
     public DashBoardPage(WebDriver driver) {
         super(driver);
     }
@@ -51,10 +54,6 @@ public class DashBoardPage extends Base {
         waitUntilClickable(myProfileLink).click();
     }
 
-    public void setCity(String cityName) {
-        waitUntilVisible(cityInputField).sendKeys(cityName);
-    }
-
     public void setNewPassword(String password) {
         waitUntilClickable(passwordField).sendKeys(password);
         scrollToElement(confirmPasswordField).sendKeys(password);
@@ -69,5 +68,9 @@ public class DashBoardPage extends Base {
         scrollToElement(header);
         waitUntilClickable(accountDropdown).click();
         waitUntilVisible(logoutOption).click();
+    }
+
+    public String getReservationStatus() {
+        return waitUntilVisible(reservationStatus).getText();
     }
 }
