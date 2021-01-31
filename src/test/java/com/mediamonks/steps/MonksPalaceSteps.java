@@ -16,10 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MonksPalaceSteps {
 
     private final HomePage homePage;
-    private final DashBoardPage dashBoardPage;
-    private final SearchPage searchPage;
     private final HotelDetailPage hotelDetailPage;
-    private final SummaryPage summaryPage;
     private final SupplierDashboardPage supplierDashboardPage;
     private final HotelsManagementPage hotelsManagementPage;
     private final AddHotelPage addHotelPage;
@@ -29,10 +26,7 @@ public class MonksPalaceSteps {
     public MonksPalaceSteps(){
         WebDriver driver = StepHooks.driver;
         homePage = new HomePage(driver);
-        dashBoardPage = new DashBoardPage(driver);
-        searchPage = new SearchPage(driver);
         hotelDetailPage = new HotelDetailPage(driver);
-        summaryPage = new SummaryPage(driver);
         supplierDashboardPage = new SupplierDashboardPage(driver);
         hotelsManagementPage = new HotelsManagementPage(driver);
         addHotelPage = new AddHotelPage(driver);

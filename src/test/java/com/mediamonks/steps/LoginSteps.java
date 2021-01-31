@@ -1,6 +1,6 @@
 package com.mediamonks.steps;
 
-import com.mediamonks.pages.admin.AdminHomePage;
+import com.mediamonks.pages.admin.AdminLoginPage;
 import com.mediamonks.pages.customer.DashBoardPage;
 import com.mediamonks.pages.customer.HomePage;
 import com.mediamonks.pages.customer.LoginPage;
@@ -23,7 +23,7 @@ public class LoginSteps {
     private final HomePage homePage;
     private final RegisterPage registerPage;
     private final SupplierLoginPage supplierLoginPage;
-    private final AdminHomePage adminHomePage;
+    private final AdminLoginPage adminLoginPage;
     private final Logger logger;
 
     public LoginSteps(){
@@ -33,7 +33,7 @@ public class LoginSteps {
         homePage = new HomePage(driver);
         registerPage = new RegisterPage(driver);
         supplierLoginPage = new SupplierLoginPage(driver);
-        adminHomePage = new AdminHomePage(driver);
+        adminLoginPage = new AdminLoginPage(driver);
         logger = Logger.getLogger("LoginSteps");
     }
 
@@ -62,7 +62,7 @@ public class LoginSteps {
 
     }
 
-    @When("User goes to their profile page")
+    @Given("User goes to their profile page")
     public void user_goes_to_their_profile_page() {
         logger.info("Accessing to the profile via 'My Profile' section");
         dashBoardPage.goToMyProfile();
@@ -79,19 +79,19 @@ public class LoginSteps {
     @Given("User navigates to the admin page")
     public void user_navigates_to_the_admin_page() throws IOException, InterruptedException {
         logger.info("Navigating to the Admin page");
-        adminHomePage.navigateToAdminPage();
+        adminLoginPage.navigateToAdminPage();
     }
 
     @When("User fill the admin login form with {string} email and {string} password")
     public void user_fill_the_admin_login_form_with_email_and_password(String email, String password) {
         logger.info("Filling the login form on the admin page with customer credentials email: " + email + " , and password: " + password);
-        adminHomePage.doLogin(email,password);
+        adminLoginPage.doLogin(email,password);
     }
 
     @Then("User see {string} message on the admin page")
     public void user_see_message_on_the_admin_page(String message) {
         logger.info("Testing that the login was unsuccessful and validation message appeared");
-        assertEquals(message, adminHomePage.getValidationMessage());
+        assertEquals(message, adminLoginPage.getValidationMessage());
     }
 
     @Then("User see {string} message on the supplier page")
@@ -112,7 +112,7 @@ public class LoginSteps {
         supplierLoginPage.doLogin(email,password);
     }
 
-    @Given("User is registered with {string} email, {string} password, {string} phone, {string} full name")
+    @When("User is registered with {string} email, {string} password, {string} phone, {string} full name")
     public void user_is_registered_with_email_password_phone_full_name(String email, String password, String phone, String fullName) throws IOException {
         logger.info("Opening a new customer account with valid credentials");
         homePage.navigateToHomePage();

@@ -8,7 +8,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import java.io.File;
 import java.io.IOException;
 
 public class StepHooks{
@@ -30,11 +29,6 @@ public class StepHooks{
             TakesScreenshot ts = (TakesScreenshot) driver;
             byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", screenshotName);
-
-            /*JiraServiceProvider jiraServiceProvider = new JiraServiceProvider("https://team-16116925.atlassian.net/",
-                    "erendegerli@hotmail.com", "1iYJ1ZJvHAmxgkAC7gGA2ACC", "EREN");
-
-            jiraServiceProvider.createJiraTicket("Bug", scenario.getName(), scenario.getName() + " Bug Issue", file);*/
 
         }else logger.info("Test case has been SUCCESSFUL");
 

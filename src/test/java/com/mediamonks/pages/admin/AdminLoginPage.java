@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.io.IOException;
 
-public class AdminHomePage extends Base {
+public class AdminLoginPage extends Base {
 
     @FindBy(css = "input[name='email']")
     private WebElement emailInputField;
@@ -22,7 +22,7 @@ public class AdminHomePage extends Base {
     @FindBy(css = "div.alert.alert-danger.loading.wow.fadeIn.animated.animated")
     private WebElement validationMessage;
 
-    public AdminHomePage(WebDriver driver) {
+    public AdminLoginPage(WebDriver driver) {
         super(driver);
     }
 
