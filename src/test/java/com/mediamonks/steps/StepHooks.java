@@ -22,7 +22,7 @@ public class StepHooks{
         logger = Logger.getLogger("RESULT");
     }
 
-    //@After
+    @After
     public void tearDown(Scenario scenario) {
         if(scenario.isFailed()){
             logger.error("Test case has been FAILED");

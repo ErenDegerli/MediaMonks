@@ -5,13 +5,11 @@ import com.mediamonks.pages.customer.DashBoardPage;
 import com.mediamonks.pages.customer.HomePage;
 import com.mediamonks.pages.customer.LoginPage;
 import com.mediamonks.pages.customer.RegisterPage;
-import com.mediamonks.pages.supplier.SupplierHomePage;
+import com.mediamonks.pages.supplier.SupplierLoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.log4j.Logger;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -24,7 +22,7 @@ public class LoginSteps {
     private final DashBoardPage dashBoardPage;
     private final HomePage homePage;
     private final RegisterPage registerPage;
-    private final SupplierHomePage supplierHomePage;
+    private final SupplierLoginPage supplierLoginPage;
     private final AdminHomePage adminHomePage;
     private final Logger logger;
 
@@ -34,9 +32,9 @@ public class LoginSteps {
         dashBoardPage = new DashBoardPage(driver);
         homePage = new HomePage(driver);
         registerPage = new RegisterPage(driver);
-        supplierHomePage = new SupplierHomePage(driver);
+        supplierLoginPage = new SupplierLoginPage(driver);
         adminHomePage = new AdminHomePage(driver);
-        logger = Logger.getLogger("Login");
+        logger = Logger.getLogger("LoginSteps");
     }
 
     @Given("User navigates to login page")
@@ -79,7 +77,7 @@ public class LoginSteps {
     }
 
     @Given("User navigates to the admin page")
-    public void user_navigates_to_the_admin_page() throws IOException {
+    public void user_navigates_to_the_admin_page() throws IOException, InterruptedException {
         logger.info("Navigating to the Admin page");
         adminHomePage.navigateToAdminPage();
     }
@@ -99,19 +97,19 @@ public class LoginSteps {
     @Then("User see {string} message on the supplier page")
     public void user_see_message_on_the_supplier_page(String message) {
         logger.info("Testing that the login was unsuccessful and validation message appeared");
-        assertEquals(message, supplierHomePage.getValidationMessage());
+        assertEquals(message, supplierLoginPage.getValidationMessage());
     }
 
     @Given("User navigates to the supplier page")
     public void user_navigates_to_the_supplier_page() throws IOException {
         logger.info("Navigating to the Supplier page");
-        supplierHomePage.navigateToSupplierPage();
+        supplierLoginPage.navigateToSupplierPage();
     }
 
     @When("User fill the supplier login form with {string} email and {string} password")
     public void user_fill_the_supplier_login_form_with_email_and_password(String email, String password) {
         logger.info("Signing in on the supplier page with customer credentials email: " + email + " , and password: " + password);
-        supplierHomePage.doLogin(email,password);
+        supplierLoginPage.doLogin(email,password);
     }
 
     @Given("User is registered with {string} email, {string} password, {string} phone, {string} full name")

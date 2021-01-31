@@ -33,8 +33,8 @@ public abstract class Base {
         return element;
     }
 
-    public void mouseHover(WebElement webElement) {
-        actions.moveToElement(webElement).perform();
+    public void mouseHoverAndClick(WebElement webElement) {
+        actions.moveToElement(webElement).click().perform();
     }
 
     public WebElement scrollToElement(WebElement element) {

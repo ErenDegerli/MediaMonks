@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.io.IOException;
 
-public class SupplierHomePage extends Base {
+public class SupplierLoginPage extends Base {
 
     @FindBy(css = "input[name='email']")
     private WebElement emailInputField;
@@ -23,7 +23,7 @@ public class SupplierHomePage extends Base {
     @FindBy(css = "div.alert.alert-danger.loading.wow.fadeIn.animated.animated")
     private WebElement validationMessage;
 
-    public SupplierHomePage(WebDriver driver) {
+    public SupplierLoginPage(WebDriver driver) {
         super(driver);
     }
 

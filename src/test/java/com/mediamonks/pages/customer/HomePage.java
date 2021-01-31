@@ -3,6 +3,7 @@ package com.mediamonks.pages.customer;
 import com.mediamonks.core.Base;
 import com.mediamonks.core.PropKey;
 import com.mediamonks.core.PropertyReader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -50,6 +51,12 @@ public class HomePage extends Base {
 
     @FindBy(css = "button.btn.btn-primary.btn-block")
     private WebElement searchBtn;
+
+    @FindBy(id = "dropdownLangauge")
+    private WebElement languageDropdown;
+
+    @FindBy(id = "tr")
+    private WebElement turkishLanguageOption;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -112,5 +119,10 @@ public class HomePage extends Base {
                 waitUntilClickable(increaseChildrenCustomerNumberBtn).click();
             }
         }
+    }
+
+    public void changeLanguageTo(String language) {
+        waitUntilClickable(languageDropdown).click();
+        waitUntilClickable(turkishLanguageOption).click();
     }
 }
