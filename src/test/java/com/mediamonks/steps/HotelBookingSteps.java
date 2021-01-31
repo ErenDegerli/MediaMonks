@@ -34,14 +34,14 @@ public class HotelBookingSteps {
     }
 
     @When("User makes a search for a reservation to {string} from {string} to {string} for {int} adult and {int} children")
-    public void user_makes_a_search_for_a_reservation_to_from_to_for_adult_and_children(String location, String checkInDate, String checkOutDate, int adultNumber, int childrenNumber) throws IOException {
+    public void user_makes_a_search_for_a_reservation_to_from_to_for_adult_and_children(String location, String checkInDate, String checkOutDate, int adultNumber, int childrenNumber) {
         logger.info("Making a hotel search with some specific preferences");
         homePage.makeASearch(location, checkInDate, checkOutDate, adultNumber, childrenNumber);
     }
 
     @Then("User see hotels are listed in {string}")
     public void user_see_hotels_are_listed_in(String location) {
-        logger.info("Asserting the name on dashboard welcome message and account dropdown contains User's name");
+        logger.info("Asserting the location is: " + location + " on listed hotels page and existence of listed hotels");
 
         assertAll(
                 () -> assertTrue(searchPage.getTitle().contains(location)),
@@ -94,7 +94,7 @@ public class HotelBookingSteps {
 
     @Then("User see {string} message")
     public void user_see_message(String message) {
-        logger.info("Asserting reserved message and expecting to see " + message);
+        logger.info("Asserting reserved message and expecting to see: " + message);
         assertEquals(message, summaryPage.getReservedMessage());
     }
 

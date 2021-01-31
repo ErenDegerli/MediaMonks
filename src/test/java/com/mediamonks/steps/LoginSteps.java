@@ -52,7 +52,7 @@ public class LoginSteps {
     }
 
     @Then("User see {string} on the dashboard")
-    public void user_see_on_the_dashboard(String fullName) throws InterruptedException {
+    public void user_see_on_the_dashboard(String fullName) {
         logger.info("Validating customer's name exists on the welcome message and the account dropdown");
 
         assertAll(
@@ -77,14 +77,14 @@ public class LoginSteps {
     }
 
     @Given("User navigates to the admin page")
-    public void user_navigates_to_the_admin_page() throws IOException, InterruptedException {
+    public void user_navigates_to_the_admin_page() throws IOException {
         logger.info("Navigating to the Admin page");
         adminLoginPage.navigateToAdminPage();
     }
 
     @When("User fill the admin login form with {string} email and {string} password")
     public void user_fill_the_admin_login_form_with_email_and_password(String email, String password) {
-        logger.info("Filling the login form on the admin page with customer credentials email: " + email + " , and password: " + password);
+        logger.info("Filling the login form on the admin page with credentials email: " + email + " , and password: " + password);
         adminLoginPage.doLogin(email,password);
     }
 
@@ -108,7 +108,7 @@ public class LoginSteps {
 
     @When("User fill the supplier login form with {string} email and {string} password")
     public void user_fill_the_supplier_login_form_with_email_and_password(String email, String password) {
-        logger.info("Signing in on the supplier page with customer credentials email: " + email + " , and password: " + password);
+        logger.info("Signing in on the supplier page with credentials email: " + email + " , and password: " + password);
         supplierLoginPage.doLogin(email,password);
     }
 

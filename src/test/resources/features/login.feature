@@ -12,7 +12,7 @@ Feature: MediaMonks Login Test
     And User see "Demo User" on the dashboard
 
   Scenario: Customer should not be able to login Admin Section
-    When User is registered with "erendegerliii@hotmail.com" email, "123456" password, "123" phone, "Eren Degerli" full name
+    When User is registered with "erendegerli@hotmail.com" email, "123456" password, "123" phone, "Eren Degerli" full name
     Then User see "Eren Degerli" on the dashboard
     Given User navigates to the admin page
     When User fill the admin login form with "erendegerli@hotmail.com" email and "123456" password

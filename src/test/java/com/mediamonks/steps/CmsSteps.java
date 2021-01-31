@@ -33,7 +33,7 @@ public class CmsSteps {
 
     @Given("User navigates to CMS, {string} section")
     public void user_navigates_to_CMS_section(String subsection) {
-        logger.info("Navigating to CMS and" + subsection + " subsection");
+        logger.info("Navigating to CMS and " + subsection + " subsection");
         adminDashboardPage.goToSubsection(subsection);
     }
 
@@ -61,7 +61,7 @@ public class CmsSteps {
 
     @Then("User see {string} as page title, {string} as meta keywords, {string} as meta description")
     public void user_see_as_page_title_as_meta_keywords_as_meta_description(String title, String metaKeywords, String metaDescription) {
-        logger.info("Testing whether the new page has " + title + " title, " + metaKeywords + " meta keywords and " + metaDescription + " meta description");
+        logger.info("Testing whether the new page has " + title + " as title, " + metaKeywords + " as meta keywords and " + metaDescription + " as meta description");
         assertAll(
                 () -> assertEquals(title, attributeHelper.getPageTitleOfCurrentPage()),
                 () -> assertEquals(metaKeywords, attributeHelper.getMetaKeywordContentOfCurrentPage()),

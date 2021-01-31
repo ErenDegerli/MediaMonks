@@ -42,7 +42,7 @@ public class MonksPalaceSteps {
 
     @When("Supplier adds a hotel with {string} name, {string} type, {string} description, {string} location and without Laundry Service option")
     public void supplier_adds_a_hotel_with_name_description_location_and_without_option(String hotelName, String type, String description, String location) {
-        logger.info("Adding a new hotel with name, type, description and location");
+        logger.info("Adding a new hotel with name:" + hotelName + " ,type: " + type + " ,description: " + description + " and location: " + location);
         hotelsManagementPage.navigateToAddHotelPage();
         addHotelPage.setHotelDetails(hotelName, type, description, location);
         addHotelPage.setAllFacilitiesButLaundry();
@@ -84,7 +84,7 @@ public class MonksPalaceSteps {
 
     @Then("User see {string} as name")
     public void user_see_as_name(String name) {
-        logger.info("Test whether the hotel name is shown properly on title");
+        logger.info("Test whether the hotel name is shown properly on heading");
         assertEquals(name, hotelDetailPage.getHotelNameTitle());
     }
 }

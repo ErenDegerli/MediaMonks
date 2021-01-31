@@ -18,5 +18,5 @@ Feature: Adding Hotel Case
   Scenario: Visit Monks Palace Turkish Page
     Given User navigates to HomePage
     When User changes the language to "Turkish"
-    And User makes a search for a reservation to "Saray Monks" from "10-02-2021" to "15-02-2021" for 2 adult and 1 children
+    And User makes a search for a reservation to "Saray Monks" from "11-02-2021" to "12-02-2021" for 2 adult and 1 children
     Then User see "Saray Monks" as name
